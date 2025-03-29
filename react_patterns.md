@@ -283,20 +283,6 @@ Compound Components – довольно "профессиональный" па
 На сегодня Suspense широко используется для ленивой загрузки компонентов (`React.lazy` + `<Suspense>`). Пример:
 
 ```jsx
-const LazyComponent = React.lazy(() => import('./LazyComponent'));
-
-function App() {
-  return (
-    <Suspense fallback={<div>Загружаем компонент...</div>}>
-      <LazyComponent />
-    </Suspense>
-  );
-}
-```
-
-В этом примере компонент `LazyComponent` загружается только тогда, когда он действительно нужен, а не при первом рендере. Если компонент ещё не загружен, React покажет запасной UI (в данном случае просто текст "Загружаем компонент...").
-
-```jsx
 const Comments = React.lazy(() => import('./Comments'));
 
 function ArticlePage() {
